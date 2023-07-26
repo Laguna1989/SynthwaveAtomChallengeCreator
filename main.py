@@ -1,28 +1,16 @@
 import random
-
+import mingus.core.scales as scales
 
 def get_random_mode():
-    mode_array = [
-        "A♭ Major", "A Major", "B♭ Major", "B Major", "C Major", "D♭ Major", "D Major", "E♭ Major", "E Major",
-        "F Major", "F♯ Major", "G Major",
 
-        "A Minor", "B♭ Minor", "B Minor", "C Minor", "C♯ Minor", "D Minor", "D♯ Minor", "E Minor", "F Minor",
-        "F♯ Minor", "G Minor", "G♯ Minor",
+    tonic_array = ["A", "B", "C", "D", "E", "F", "G"]
+    tonic = random.choice(tonic_array)
 
-        "A♭ Mixolydian", "A Mixolydian", "B♭ Mixolydian", "B Mixolydian", "C Mixolydian", "C♯ Mixolydian",
-        "D Mixolydian", "E♭ Mixolydian", "E Mixolydian", "F Mixolydian", "F♯ Mixolydian", "G Mixolydian",
+    modes_array = [scales.Ionian(tonic), scales.Aeolian(tonic), scales.Dorian(tonic), scales.Mixolydian(tonic), scales.Lydian(tonic), scales.Phrygian(tonic)]
+    mode = random.choice(modes_array)
 
-        "A Dorian", "B♭ Dorian", "B Dorian", "C Dorian", "C♯ Dorian", "D Dorian", "E♭ Dorian", "E Dorian",
-        "F Dorian", "F♯ Dorian", "G Dorian", "G♯ Dorian",
+    return mode.name
 
-        "A Phrygian", "A♯ Phrygian", "B Phrygian", "C Phrygian", "C♯ Phrygian", "D Phrygian", "D♯ Phrygian",
-        "E Phrygian", "F Phrygian", "F♯ Phrygian", "G Phrygian", "G♯ Phrygian",
-
-        "A♭ Lydian", "A Lydian", "B♭ Lydian", "B Lydian", "C Lydian", "D♭ Lydian", "D Lydian", "E♭ Lydian",
-        "E Lydian", "F Lydian", "G♭ Lydian", "G Lydian"
-    ]
-
-    return random.choice(mode_array)
 
 
 def get_random_tempo():
@@ -77,63 +65,27 @@ def get_random_chord_progression(mode: str):
 
     mixolydian_progression_array = [
         "I - VII - IV",
-        "I - IV - VII - IV",
-        "I - VII - v - IV",
-        "I - VII - IV - v",
-        "I - V - VII",
-        "I - VII - ii - IV",
-        "I - IV - v - VII",
-        "I - VII - IV - VII",
-        "I - V - VII - IV",
-        "I - VII - vi - V"
     ]
 
     dorian_progression_array = [
-        "ii - IV - v",
-        "ii - IV - I - V",
-        "ii - I - IV - V",
-        "ii - v - IV - I",
-        "ii - IV - vi - V",
-        "ii - vi - IV - V",
-        "ii - IV - v - IV",
-        "ii - vi - IV",
-        "ii - v - IV - vi",
-        "ii - IV - vi - I"
+        "i7 - IV7 - VII",
     ]
 
     phrygian_progression_array = [
-        "i - II - III",
-        "i - VII - III - II",
-        "i - II - III - iv",
-        "i - VII - II - III",
-        "i - II - VII - III",
-        "i - III - iv",
-        "i - VII - iv",
-        "i - III - II",
-        "i - II - VII - iv",
-        "i - VII - iv - III"
+        "i - II - III"
     ]
 
     lydian_progression_array = [
         "I - II - IV",
-        "I - II - V",
-        "I - II - IV - V",
-        "II - IV - V",
-        "I - III - IV",
-        "I - II - III - IV",
-        "I - II - vi - V",
-        "I - IV - V",
-        "II - III - IV",
-        "I - II - V - IV"
     ]
 
     map = {
-        "Major": ionian_progression_array,
-        "Minor": aeolian_progression_array,
-        "Mixolydian": mixolydian_progression_array,
-        "Dorian": dorian_progression_array,
-        "Phrygian": phrygian_progression_array,
-        "Lydian": lydian_progression_array
+        "ionian": ionian_progression_array,
+        "aeolian": aeolian_progression_array,
+        "mixolydian": mixolydian_progression_array,
+        "dorian": dorian_progression_array,
+        "phrygian": phrygian_progression_array,
+        "lydian": lydian_progression_array
     }
 
     mode_str = mode.split()[1]
