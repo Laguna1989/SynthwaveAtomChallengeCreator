@@ -1,6 +1,8 @@
 import random
 import mingus.core.scales as scales
 import mingus.core.chords as chords
+import discord
+import os
 
 
 def get_random_mode():
@@ -147,21 +149,59 @@ def get_random_chord_progression(mode: str):
     return random.choice(map[mode_str])
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print("tempo:", get_random_tempo(), "bpm")
-    print("timing: 4/4")
-    print("total length: 60-90s")
 
-    print("drums:", get_random_drums())
+
+def print_to_string(*args, **kwargs):
+    newstr = ""
+    for a in args:
+        newstr+=str(a)+' '
+    return newstr
+
+
+def create_atom_instruction_string():
+    output_string = ""
+    output_string += print_to_string("* **Tempo:**", get_random_tempo(), "bpm") + "\n"
+    output_string += print_to_string("* **Timing:** 4/4") + "\n"
+    output_string += print_to_string("* **Total length:** 60-90s") + "\n"
+
+    output_string += print_to_string("* **Drums:**", get_random_drums()) + "\n"
 
     mode = get_random_mode()
-    print("mode:", mode.name)
-    print("\tnotes in mode:", mode.ascending())
+    key = mode.name.split(" ")[0]
+    mode_name = mode.name.split(" ")[1]
+    output_string += print_to_string("* **Key:**", key) + "\n"
+    output_string += print_to_string("* **Mode:**", mode_name) + "\n"
+    output_string += print_to_string("\t* **Notes in scale:**", mode.ascending()) + "\n"
 
     chord_progression = get_random_chord_progression(mode.name)
-    print("chord progression:", chord_progression)
+    output_string += print_to_string("* **chord progression:**", chord_progression) + "\n"
     for chord in chord_progression:
         chord_notes_array = get_chord_from_scale(mode, chord)
-        print("\t", chord, ",", chords.determine(chord_notes_array, True, True, True)[0], ", notes: ",
-              chord_notes_array)
+        output_string += print_to_string(" * **", chord, "**,", chords.determine(chord_notes_array, True, True, True)[0],
+                                         ", notes: ",
+                                         chord_notes_array) + "\n"
+    return output_string
+
+
+TOKEN = os.getenv('DISCORD_TOKEN')
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+client = discord.Client(intents=intents)
+
+@client.event
+async def on_ready():
+    print(f'{client.user} has connected to Discord!')
+
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+    if message.content == '!atom':
+        response = create_atom_instruction_string()
+        await message.channel.send(response)
+
+client.run(TOKEN)
