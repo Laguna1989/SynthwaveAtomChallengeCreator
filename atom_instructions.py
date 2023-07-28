@@ -1,6 +1,7 @@
 import random
 from mingus.core import scales as scales, chords as chords
 
+
 def get_random_mode():
     tonic_array = ["A", "B", "C", "D", "E", "F", "G"]
     tonic = random.choice(tonic_array)
@@ -41,18 +42,26 @@ def romanToInt(s):
     return num
 
 
-def get_chord_from_scale(mode, chord):
-    notes_in_scale = mode.ascending()[:-1]
+def get_chord_from_scale(notes_in_scale, chord):
     chord = chord.strip()
 
     base_chord = chord
-    if chord.endswith("7"):
+    if "sus2" in base_chord:
+        base_chord = base_chord[:-4]
+    if "sus4" in base_chord:
+        base_chord = base_chord[:-4]
+    if "7" in base_chord:
         base_chord = base_chord[:-1]
+
     base_index = romanToInt(base_chord.upper()) - 1
     indices = [base_index, base_index + 2, base_index + 4]
 
-    if chord.endswith("7"):
+    if "7" in chord:
         indices.append(base_index + 6)
+    if "sus4" in chord:
+        indices[1] += 1
+    if "sus2" in chord:
+        indices[1] -= 1
     return list(map(lambda i: get_note_from_scale(notes_in_scale, i), indices))
 
 
@@ -63,18 +72,28 @@ def get_random_tempo():
 def get_random_drums():
     drums_array = [
         "E-mu Drumulator",
+
         "Korg DDD-1",
-        "Linn Linn9000",
+
+        "Linn 9000",
         "Linn LinnDrum",
+        "Linn LM-1"
+
         "Oberheim DMX",
+
+        "Roland CR76",
         "Roland R8",
         "Roland TR-626",
         "Roland TR-707",
         "Roland TR-808",
         "Roland TR-909",
+
         "SCI DrumTraks",
+
         "Simmons SDSV",
-        "Yamaha RX5"
+
+        "Yamaha RX5",
+        "Yamaha RY30"
     ]
     return random.choice(drums_array)
 
@@ -100,12 +119,17 @@ def get_random_chord_progression(mode: str):
 
     aeolian_progression_array = [
         ["i", "VII", "v"],
+        ["i", "VII", "v", "isus2"],
+
         ["i", "VI", "iv", "v"],
         ["i7", "VI", "iv", "v"],
         ["i", "VI", "iv7", "v"],
         ["i", "iv", "v", "iv"],
+
         ["i", "VI", "III7", "v"],
-        ["i7", "v", "VI"]
+
+        ["i7", "v", "VI"],
+        ["i7", "v", "VI", "i7sus4"]
     ]
 
     ## TODO
@@ -148,7 +172,7 @@ def get_random_chord_progression(mode: str):
 def print_to_string(*args, **kwargs):
     newstr = ""
     for a in args:
-        newstr+=str(a)+' '
+        newstr += str(a) + ' '
     return newstr
 
 
@@ -170,10 +194,10 @@ def get_atom_instruction_string() -> str:
     chord_progression = get_random_chord_progression(mode.name)
     output_string += print_to_string("* **chord progression:**", chord_progression) + "\n"
     for chord in chord_progression:
-        chord_notes_array = get_chord_from_scale(mode, chord)
-        output_string += print_to_string(" * **", chord, "**,", chords.determine(chord_notes_array, True, True, True)[0],
+        chord_notes_array = get_chord_from_scale(mode.ascending()[:-1], chord)
+        output_string += print_to_string(" * **", chord, "**,",
+                                         chords.determine(chord_notes_array, True, True, True)[0],
                                          ", notes: ",
                                          chord_notes_array) + "\n"
-
 
     return output_string.replace("'", "")
