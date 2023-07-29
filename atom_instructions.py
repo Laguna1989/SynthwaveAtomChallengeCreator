@@ -169,6 +169,106 @@ def get_random_chord_progression(mode: str):
     return random.choice(map[mode_str])
 
 
+def get_modifier_percussion_element():
+    percussion_instrument_array = [
+        "clap",
+        "shaker",
+        "tambourin",
+        "conga",
+        "cowbell",
+        "side snare"
+    ]
+
+    ryhthm_array = [
+        "the groove",
+        "a fill"
+    ]
+
+    return "**Rhythm:** Include a " + random.choice(percussion_instrument_array) + " in " + random.choice(ryhthm_array)
+
+
+def get_modifier_hihat_pattern():
+    type_array = [
+        "continuous",
+        "boken"
+    ]
+
+    beat_array = [
+        "4th",
+        "8th",
+        "16th",
+        "32th"
+    ]
+
+    random_value = random.randint(0, 100)
+    hh_type = "closed"
+    if random_value < 30:
+        hh_type = open
+
+    return "**Rhythm:** Include a " + random.choice(beat_array) + " " + random.choice(
+        type_array) + " " + hh_type + " hihat in your groove"
+
+
+def get_modifier_melody_pentatonic(mode):
+    map = {
+        "ionian": "major",
+        "aeolian": "minor",
+        "mixolydian": "major",
+        "dorian": "minor",
+        "phrygian": "minor",
+        "lydian": "major"
+    }
+
+    mode_str = mode.name.split()[1]
+    return "Use the pentatonic " + map[mode_str] + " scale"
+
+
+def get_modifier_melody_scale(mode):
+    mod_array = [
+        get_modifier_melody_pentatonic(mode),
+        "Only use chord tones",
+        "Start on the Tonic",
+        "End on the Tonic",
+        "Start on a non-chord tone",
+        "End on a non-chord tone"
+    ]
+
+    return "**Melody**: " + random.choice(mod_array)
+
+
+def get_modifier_melody_range(mode):
+    mod_array = [
+        "Use only one octave",
+        "Use at least two octaves",
+        "Create an ascending melody",
+        "Create a descending melody"
+    ]
+
+    return "**Melody**: " + random.choice(mod_array)
+
+
+def get_modifiers(mode):
+    modifier_array = []
+
+    random_value = random.randint(0, 100)
+    if random_value < 33:
+        modifier_array.append(get_modifier_percussion_element())
+
+    random_value = random.randint(0, 100)
+    if random_value < 33:
+        modifier_array.append(get_modifier_hihat_pattern())
+
+    random_value = random.randint(0, 100)
+    if random_value < 50:
+        modifier_array.append(get_modifier_melody_scale(mode))
+
+    random_value = random.randint(0, 100)
+    if random_value < 50:
+        modifier_array.append(get_modifier_melody_range(mode))
+
+    return modifier_array
+
+
 def print_to_string(*args, **kwargs):
     newstr = ""
     for a in args:
@@ -199,5 +299,12 @@ def get_atom_instruction_string() -> str:
                                          chords.determine(chord_notes_array, True, True, True)[0],
                                          ", notes: ",
                                          chord_notes_array) + "\n"
+    output_string += print_to_string("* **Modifiers:** \n")
+    mods = get_modifiers(mode)
+    if not mods:
+        output_string += " * None\n"
+    else:
+        for mod in mods:
+            output_string += print_to_string(" * ", mod) + "\n"
 
     return output_string.replace("'", "")
