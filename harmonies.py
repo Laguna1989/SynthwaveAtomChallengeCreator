@@ -11,9 +11,9 @@ def get_random_mode():
         scales.Ionian(tonic),
         scales.Aeolian(tonic),
         scales.Dorian(tonic),
-        # scales.Mixolydian(tonic),
-        # scales.Lydian(tonic),
-        # scales.Phrygian(tonic)
+        scales.Mixolydian(tonic),
+        scales.Lydian(tonic),
+        scales.Phrygian(tonic)
     ]
     mode = random.choice(modes_array)
 
@@ -100,9 +100,22 @@ def get_random_chord_progression(mode: str):
         ["i7", "v", "VI", "i7sus4"]
     ]
 
-    ## TODO
     mixolydian_progression_array = [
-        ["I", "VII", "IV"]
+        ["I", "VII", "IV"],
+
+        ["I", "IV", "VII", "IV"],
+
+        ["I", "IV", "VII", "I"],
+
+        ["I", "VII", "v", "IV"],
+        ["I", "VII", "v", "vsus2", "IV"],
+        ["I", "VII", "v", "vsus2", "IVsus2"],
+
+        ["I", "VII", "IV", "v"],
+
+        ["I", "v", "VII"],
+        ["I", "v", "v", "I"],
+        ["I", "v7", "VII"],
     ]
 
     dorian_progression_array = [
@@ -115,13 +128,31 @@ def get_random_chord_progression(mode: str):
         ["i7", "VII", "ii7"]
     ]
 
-    ## TODO
-    phrygian_progression_array = [
-        ["i", "II", "III"]
-    ]
-    ## TODO
     lydian_progression_array = [
-        ["I", "II", "IV"]
+        ["I", "II", "I", "II"],
+        ["I", "II", "I", "II7"],
+
+        ["I", "II", "IV"],
+
+        ["I", "II", "IV", "IVsus4"],
+
+        ["I", "II", "vii", "I"],
+        ["I7", "II", "vii", "I"],
+    ]
+
+    phrygian_progression_array = [
+        ["i", "II", "III"],
+        ["i7", "II", "III"],
+        ["i", "IIsus2", "III"],
+
+        ["i", "VII", "III", "II"],
+        ["i7", "VII", "III", "II"],
+        ["i", "VII", "III7", "II"],
+        ["i", "VII", "III7", "IIsus2"],
+
+        ["i", "VII", "II", "III"],
+        ["i7", "VII", "II", "III"],
+        ["i", "VII", "II", "III7"]
     ]
 
     map = {
