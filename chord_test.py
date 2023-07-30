@@ -1,7 +1,7 @@
 import mingus.core.scales
 import pytest
 
-from atom_instructions import get_chord_from_scale
+from harmonies import get_chord_from_scale
 
 # C D E F G A B
 c_ionian_notes = mingus.core.scales.Ionian("C").ascending()[:-1]
