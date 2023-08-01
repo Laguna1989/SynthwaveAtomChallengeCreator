@@ -6,7 +6,7 @@ def get_random_tempo():
 
 
 def get_tempo(args):
-    if args.tempo:
+    if args.tempo != -1:
         return args.tempo
     return get_random_tempo()
 

@@ -64,17 +64,17 @@ def get_mode_from_string(mode_name: str):
         "minor": scales.Aeolian(key),
         "Minor": scales.Aeolian(key),
 
-        "mixolydian": scales.Dorian(key),
-        "Mixolydian": scales.Dorian(key),
+        "mixolydian": scales.Mixolydian(key),
+        "Mixolydian": scales.Mixolydian(key),
 
-        "dorian": scales.Mixolydian(key),
-        "Dorian": scales.Mixolydian(key),
+        "dorian": scales.Dorian(key),
+        "Dorian": scales.Dorian(key),
 
-        "phrygian": scales.Lydian(key),
-        "Phrygian": scales.Lydian(key),
+        "phrygian": scales.Phrygian(key),
+        "Phrygian": scales.Phrygian(key),
 
-        "lydian": scales.Phrygian(key),
-        "Lydian": scales.Phrygian(key)
+        "lydian": scales.Lydian(key),
+        "Lydian": scales.Lydian(key)
     }
 
     return map[mode]
