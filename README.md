@@ -7,14 +7,40 @@ are tailored towards synthwave.
 ## Example Output
 
 ```
-tempo: 81 bpm
-timing: 4/4
-total length: 60-90s
-drums: Roland R8
-mode: D dorian
-	notes in mode: ['D', 'E', 'F', 'G', 'A', 'B', 'C', 'D']
-chord progression: ['i', 'VII', 'ii']
-	 i , Dm , notes:  ['D', 'F', 'A']
-	 VII , CM , notes:  ['C', 'E', 'G']
-	 ii , Em , notes:  ['E', 'G', 'B']
+!atom
+
+Tempo: 128 bpm
+Timing: 4/4
+Total length: 60-90s
+Drums: Simmons SDSV
+Key: D
+Mode: mixolydian 
+Notes in scale: [D, E, F#, G, A, B, C, D]
+chord progression: [I, IV, VII, I] 
+ I , DM , notes:  [D, F#, A]
+ IV , GM , notes:  [G, B, D]
+ VII , CM , notes:  [C, E, G]
+ I , DM , notes:  [D, F#, A]
+Modifiers: 
+ Melody: Start on a non-chord tone
+ Melody: Create an ascending melody
+ Melody Pattern: Write a melody with the pattern A | A | A | B
+```
+
+There are parameters available to avoid randomizing specific parts, namely:
+
+```
+    "--tempo", should be in format 123
+    "--drums", should be in format 'Linn 9000'
+    "--mode", should be in format 'A aeolian'
+    "--chords", should be in format 'I III I V7' or 'I, III, I, V7'
+```
+
+E.g. full calls can look like this
+
+```
+!Atom --tempo 90 --drums 'Roland R8'
+!Atom --mode '? dorian' 
+!Atom --mode 'C ?'
+!Atom --chords 'I, vi7, IV, V7'
 ```

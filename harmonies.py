@@ -2,6 +2,8 @@ import random
 
 from mingus.core import scales as scales
 
+from atom_arguments import AtomArguments
+
 
 def get_random_mode():
     tonic_array = ["A", "B", "C", "D", "E", "F", "G"]
@@ -18,6 +20,12 @@ def get_random_mode():
     mode = random.choice(modes_array)
 
     return mode
+
+
+def get_mode(args):
+    if args.mode:
+        return args.mode
+    return get_random_mode()
 
 
 def get_note_from_scale(notes, index):
@@ -66,7 +74,10 @@ def get_chord_from_scale(notes_in_scale, chord):
     return list(map(lambda i: get_note_from_scale(notes_in_scale, i), indices))
 
 
-def get_random_chord_progression(mode: str):
+def get_random_chord_progression(mode: str, args: AtomArguments):
+    if args.chords:
+        return args.chords
+
     ionian_progression_array = [
         ["I", "IV", "V"],
         ["I", "IV", "V7"],
@@ -109,7 +120,7 @@ def get_random_chord_progression(mode: str):
 
         ["I", "VII", "v", "IV"],
         ["I", "VII", "v", "vsus2", "IV"],
-        ["I", "VII", "v", "vsus2", "IVsus2"],
+        ["I", "VII", "v", "v", "IVsus2"],
 
         ["I", "VII", "IV", "v"],
 

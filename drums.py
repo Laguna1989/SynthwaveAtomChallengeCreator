@@ -28,3 +28,9 @@ def get_random_drums():
         "Yamaha RY30"
     ]
     return random.choice(drums_array)
+
+
+def get_drums(args):
+    if args.drums:
+        return args.drums
+    return get_random_drums()
