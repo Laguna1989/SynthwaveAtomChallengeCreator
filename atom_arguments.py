@@ -11,18 +11,18 @@ class AtomArguments:
         self.chords = ""
 
 
-def get_mode_from_string(mode_name: str):
-    mode_name_array = mode_name.split()
-    if len(mode_name_array) != 2:
+def get_mode_from_string(key_name: str, mode_name: str):
+    if not key_name:
+        key_name = ""
+    if not mode_name:
+        mode_name = ""
+
+    tonic_array = ["A", "B", "C", "D", "E", "F", "G", ""]
+    if key_name not in tonic_array:
         return None
 
-    key = mode_name_array[0]
-    tonic_array = ["A", "B", "C", "D", "E", "F", "G", "?"]
-    if key not in tonic_array:
-        return None
-
-    if key == "?":
-        key = random.choice(tonic_array[:-1])
+    if key_name == "":
+        key_name = random.choice(tonic_array[:-1])
 
     modes_list = [
         "ionian",
@@ -43,41 +43,40 @@ def get_mode_from_string(mode_name: str):
         "lydian",
         "lydian",
 
-        "?"
+        ""
     ]
-
-    mode = mode_name_array[1].lower()
-    if mode not in modes_list:
+    mode_name = mode_name.lower()
+    if mode_name not in modes_list:
         return None
 
-    if mode == "?":
-        mode = random.choice(modes_list[:-1])
+    if mode_name == "":
+        mode_name = random.choice(modes_list[:-1])
 
     map = {
-        "ionian": scales.Ionian(key),
-        "Ionian": scales.Ionian(key),
-        "major": scales.Ionian(key),
-        "Major": scales.Ionian(key),
+        "ionian": scales.Ionian(key_name),
+        "Ionian": scales.Ionian(key_name),
+        "major": scales.Ionian(key_name),
+        "Major": scales.Ionian(key_name),
 
-        "aeolian": scales.Aeolian(key),
-        "Aeolian": scales.Aeolian(key),
-        "minor": scales.Aeolian(key),
-        "Minor": scales.Aeolian(key),
+        "aeolian": scales.Aeolian(key_name),
+        "Aeolian": scales.Aeolian(key_name),
+        "minor": scales.Aeolian(key_name),
+        "Minor": scales.Aeolian(key_name),
 
-        "mixolydian": scales.Mixolydian(key),
-        "Mixolydian": scales.Mixolydian(key),
+        "mixolydian": scales.Mixolydian(key_name),
+        "Mixolydian": scales.Mixolydian(key_name),
 
-        "dorian": scales.Dorian(key),
-        "Dorian": scales.Dorian(key),
+        "dorian": scales.Dorian(key_name),
+        "Dorian": scales.Dorian(key_name),
 
-        "phrygian": scales.Phrygian(key),
-        "Phrygian": scales.Phrygian(key),
+        "phrygian": scales.Phrygian(key_name),
+        "Phrygian": scales.Phrygian(key_name),
 
-        "lydian": scales.Lydian(key),
-        "Lydian": scales.Lydian(key)
+        "lydian": scales.Lydian(key_name),
+        "Lydian": scales.Lydian(key_name)
     }
 
-    return map[mode]
+    return map[mode_name]
 
 
 def get_chords_from_string(chord_string: str):

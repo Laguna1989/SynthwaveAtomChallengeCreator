@@ -38,14 +38,24 @@ def test_arguments_from_string_drums(drums):
 
 
 @pytest.mark.parametrize("mode", [
-    "c ionian",
-    "F Mixolydian"
+    "ionian", "aeolian", "dorian", "mixolydian", "lydian", "phrygian"
 ])
 def test_arguments_from_string_mode(mode):
     atom_arguments = get_arguments_from_string("!atom -m '" + mode + "'")
     assert atom_arguments.tempo == -1
     assert atom_arguments.drums == ""
-    assert atom_arguments.mode == get_mode_from_string(mode)
+    assert mode in atom_arguments.mode.name
+    assert atom_arguments.chords == ""
+
+
+@pytest.mark.parametrize("key", [
+    "C", "D", "E", "F", "G", "A", "B"
+])
+def test_arguments_from_string_key(key):
+    atom_arguments = get_arguments_from_string("!atom -k '" + key + "'")
+    assert atom_arguments.tempo == -1
+    assert atom_arguments.drums == ""
+    assert key in atom_arguments.mode.name
     assert atom_arguments.chords == ""
 
 

@@ -32,7 +32,7 @@ There are parameters available to avoid randomizing specific parts, namely:
 ```
     "--tempo", should be in format 123
     "--drums", should be in format 'Linn 9000'
-    "--mode", should be in format 'A aeolian'
+    "--mode", should be in format 'aeolian'
     "--chords", should be in format 'I III I V7' or 'I, III, I, V7'
 ```
 

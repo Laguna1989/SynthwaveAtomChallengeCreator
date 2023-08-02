@@ -24,8 +24,9 @@ def test_get_instructions_with_args_drums():
 
 def test_get_instructions_with_args_mode_CMaj():
     args = AtomArguments()
-    mode_string = "C Major"
-    args.mode = get_mode_from_string(mode_string)
+    key_string = "C"
+    mode_string = "Major"
+    args.mode = get_mode_from_string(key_string, mode_string)
 
     instructions = get_atom_instruction_string(args)
 
@@ -35,8 +36,9 @@ def test_get_instructions_with_args_mode_CMaj():
 
 def test_get_instructions_with_args_mode_CMin():
     args = AtomArguments()
-    mode_string = "C minor"
-    args.mode = get_mode_from_string(mode_string)
+    key_string = "C"
+    mode_string = "minor"
+    args.mode = get_mode_from_string(key_string, mode_string)
 
     instructions = get_atom_instruction_string(args)
 
@@ -46,29 +48,28 @@ def test_get_instructions_with_args_mode_CMin():
 
 @pytest.mark.parametrize("mode_name", ["X", "Y", "Bla Blubb", "? Blubb", "Bla ?"])
 def test_get_mode_from_string_invalid_input(mode_name):
-    assert get_mode_from_string(mode_name) is None
+    assert get_mode_from_string("C", mode_name) is None
+    assert get_mode_from_string(mode_name, "aeolian") is None
 
 
-@pytest.mark.parametrize("mode_name", [
-    "C ionian",
-    "D ionian",
-    "E ionian",
-    "F ionian",
-    "G ionian",
-    "A ionian",
-    "B ionian",
-    "C Ionian",
-    "C Major",
-    "C major",
-    "C minor",
-    "C Minor",
-    "C Aeolian",
-    "C aeolian",
-    "C ?",
-    "? Dorian"
+@pytest.mark.parametrize("key_name, mode_name", [
+    ("C", "ionian"),
+    ("D", "ionian"),
+    ("E", "ionian"),
+    ("F", "ionian"),
+    ("G", "ionian"),
+    ("A", "ionian"),
+    ("B", "ionian"),
+    ("C", "Ionian"),
+    ("C", "Major"),
+    ("C", "major"),
+    ("C", "minor"),
+    ("C", "Minor"),
+    ("C", "Aeolian"),
+    ("C", "aeolian")
 ])
-def test_get_mode_from_string_valid_input(mode_name):
-    assert get_mode_from_string(mode_name) is not None
+def test_get_mode_from_string_valid_input(key_name, mode_name):
+    assert get_mode_from_string(key_name, mode_name) is not None
 
 
 @pytest.mark.parametrize("chord_string, expected_chords", [
