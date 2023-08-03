@@ -22,6 +22,10 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
+
+    if not isinstance(message.channel, discord.channel.DMChannel):
+        return
+
     content: str = message.content
     if content.startswith('!atomhelp'):
         parser = create_parser()
@@ -43,7 +47,7 @@ async def on_message(message):
             response = get_atom_instruction_string(args)
             await message.channel.send(response)
         except:
-            
+
             await message.channel.send(":exclamation: AtomInstructor collapses")
 
 
