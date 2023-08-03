@@ -18,6 +18,7 @@ def get_mode_from_string(key_name: str, mode_name: str):
         mode_name = ""
 
     tonic_array = ["A", "B", "C", "D", "E", "F", "G", ""]
+    key_name = key_name.upper()
     if key_name not in tonic_array:
         return None
 
@@ -45,7 +46,6 @@ def get_mode_from_string(key_name: str, mode_name: str):
 
         ""
     ]
-    mode_name = mode_name.lower()
     if mode_name not in modes_list:
         return None
 
@@ -54,26 +54,18 @@ def get_mode_from_string(key_name: str, mode_name: str):
 
     map = {
         "ionian": scales.Ionian(key_name),
-        "Ionian": scales.Ionian(key_name),
         "major": scales.Ionian(key_name),
-        "Major": scales.Ionian(key_name),
 
         "aeolian": scales.Aeolian(key_name),
-        "Aeolian": scales.Aeolian(key_name),
         "minor": scales.Aeolian(key_name),
-        "Minor": scales.Aeolian(key_name),
 
         "mixolydian": scales.Mixolydian(key_name),
-        "Mixolydian": scales.Mixolydian(key_name),
 
         "dorian": scales.Dorian(key_name),
-        "Dorian": scales.Dorian(key_name),
 
         "phrygian": scales.Phrygian(key_name),
-        "Phrygian": scales.Phrygian(key_name),
 
-        "lydian": scales.Lydian(key_name),
-        "Lydian": scales.Lydian(key_name)
+        "lydian": scales.Lydian(key_name)
     }
 
     return map[mode_name]

@@ -25,7 +25,7 @@ def test_get_instructions_with_args_drums():
 def test_get_instructions_with_args_mode_CMaj():
     args = AtomArguments()
     key_string = "C"
-    mode_string = "Major"
+    mode_string = "Major".casefold()
     args.mode = get_mode_from_string(key_string, mode_string)
 
     instructions = get_atom_instruction_string(args)
@@ -69,7 +69,7 @@ def test_get_mode_from_string_invalid_input(mode_name):
     ("C", "aeolian")
 ])
 def test_get_mode_from_string_valid_input(key_name, mode_name):
-    assert get_mode_from_string(key_name, mode_name) is not None
+    assert get_mode_from_string(key_name, mode_name.casefold()) is not None
 
 
 @pytest.mark.parametrize("chord_string, expected_chords", [

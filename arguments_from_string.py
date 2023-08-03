@@ -11,9 +11,9 @@ def create_parser():
                         help='Use a specific drum machine. DRUMS should be given as a string. '
                              'If DRUMS contains spaces, please add quotation marks, e.g. "Linn Linndrum".')
     parser.add_argument("-k", "--key", help='Use a specific key.',
-                        choices=['C', 'D', 'E', 'F', 'G', 'A', 'B'])
+                        choices=['c', 'd', 'e', 'f', 'g', 'a', 'b'], type=str.casefold)
     parser.add_argument("-m", "--mode", help='Use a specific mode.',
-                        choices=['Ionian', 'Aeolian', 'Dorian', 'Mixolydian', 'Lydian', 'Phrygian'])
+                        choices=['ionian', 'aeolian', 'dorian', 'mixolydian', 'lydian', 'phrygian'], type=str.casefold)
     parser.add_argument("-c", "--chords",
                         help='Use a specific chord progression. '
                              'CHORDS should be given as a string. '
