@@ -33,6 +33,7 @@ There are parameters available to avoid randomizing specific parts, namely:
     "--tempo", should be in format 123
     "--drums", should be in format 'Linn 9000'
     "--mode", should be in format 'aeolian'
+    "--key", should be in format 'C'
     "--chords", should be in format 'I III I V7' or 'I, III, I, V7'
 ```
 
@@ -40,7 +41,6 @@ E.g. full calls can look like this
 
 ```
 !Atom --tempo 90 --drums 'Roland R8'
-!Atom --mode '? dorian' 
-!Atom --mode 'C ?'
+!Atom --k C -m dorian
 !Atom --chords 'I, vi7, IV, V7'
 ```
