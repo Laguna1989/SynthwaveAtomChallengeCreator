@@ -157,13 +157,13 @@ def get_modifiers(mode):
     modifier_options = [
         (33, get_modifier_percussion_element()),
         (33, get_modifier_drum_pattern()),
-        (40, modifier_array.append(get_modifier_melody_scale(mode))),
-        (40, modifier_array.append(get_modifier_melody_range(mode))),
-        (66, modifier_array.append(get_modifier_melody_pattern())),
-        (25, modifier_array.append(get_modifier_bass_pattern())),
-        (15, modifier_array.append(get_modifier_octave_jump_in_bass())),
-        (25, modifier_array.append(get_modifier_support_element())),
-        (20, modifier_array.append(get_start_with_modifier()))
+        (40, get_modifier_melody_scale(mode)),
+        (40, get_modifier_melody_range(mode)),
+        (66, get_modifier_melody_pattern()),
+        (25, get_modifier_bass_pattern()),
+        (15, get_modifier_octave_jump_in_bass()),
+        (25, get_modifier_support_element()),
+        (20, get_start_with_modifier())
     ]
 
     for kvp in modifier_options:
