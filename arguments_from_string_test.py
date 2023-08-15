@@ -49,7 +49,7 @@ def test_arguments_from_string_mode(mode):
 
 
 @pytest.mark.parametrize("key", [
-    "C", "D", "E", "F", "G", "A", "B"
+    "Ab", "A", "A#", "Bb", "B", "C", "C#", "Db", "D", "D#", "Eb", "E", "F", "F#", "Gb", "G", "G#"
 ])
 def test_arguments_from_string_key(key):
     atom_arguments = get_arguments_from_string("!atom -k '" + key + "'")

@@ -93,7 +93,9 @@ def get_random_chord_progression(mode: str, args: AtomArguments):
         ["I", "iii", "I7", "V"],
 
         ["I", "ii", "IV", "V"],
-        ["I", "ii", "IV", "V7"]
+        ["I", "ii", "IV", "V7"],
+
+        ["I", "iv", "VI", "V"]
     ]
 
     aeolian_progression_array = [

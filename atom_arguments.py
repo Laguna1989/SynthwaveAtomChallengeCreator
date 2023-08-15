@@ -17,8 +17,8 @@ def get_mode_from_string(key_name: str, mode_name: str):
     if not mode_name:
         mode_name = ""
 
-    tonic_array = ["A", "B", "C", "D", "E", "F", "G", ""]
-    key_name = key_name.upper()
+    tonic_array = ["Ab", "A", "A#", "Bb", "B", "C", "C#", "Db", "D", "D#", "Eb", "E", "F", "F#", "Gb", "G", "G#", ""]
+    key_name = key_name.capitalize()
     if key_name not in tonic_array:
         return None
 
