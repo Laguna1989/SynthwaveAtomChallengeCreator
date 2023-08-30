@@ -6,7 +6,7 @@ from atom_arguments import AtomArguments
 
 
 def get_random_mode():
-    tonic_array = ["A", "B", "C", "D", "E", "F", "G"]
+    tonic_array = ["Ab", "A", "A#", "Bb", "B", "C", "C#", "Db", "D", "D#", "Eb", "E", "F", "F#", "Gb", "G", "G#"]
     tonic = random.choice(tonic_array)
 
     modes_array = [
