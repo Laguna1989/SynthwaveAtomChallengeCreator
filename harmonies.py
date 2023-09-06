@@ -110,7 +110,12 @@ def get_random_chord_progression(mode: str, args: AtomArguments):
         ["i", "VI", "III7", "v"],
 
         ["i7", "v", "VI"],
-        ["i7", "v", "VI", "i7sus4"]
+        ["i7", "v", "VI", "i7sus4"],
+
+        ["i", "iii", "VII", "iv"],
+        ["i7", "iii", "VII", "iv"],
+        ["i", "iii", "VII7", "iv"],
+        ["i7", "iii", "VII7", "iv"],
     ]
 
     mixolydian_progression_array = [
