@@ -95,7 +95,12 @@ def get_random_chord_progression(mode: str, args: AtomArguments):
         ["I", "ii", "IV", "V"],
         ["I", "ii", "IV", "V7"],
 
-        ["I", "iv", "VI", "V"]
+        ["I", "iv", "VI", "V"],
+
+        ["I", "V", "vi", "iv"],
+        ["I", "IV", "ii", "V"],
+        ["I", "iii", "vi", "V"],
+        ["I", "iii", "vi", "V"],
     ]
 
     aeolian_progression_array = [
@@ -110,7 +115,12 @@ def get_random_chord_progression(mode: str, args: AtomArguments):
         ["i", "VI", "III7", "v"],
 
         ["i7", "v", "VI"],
-        ["i7", "v", "VI", "i7sus4"]
+        ["i7", "v", "VI", "i7sus4"],
+
+        ["i", "VII", "VI", "v"],
+        ["i", "III", "VII", "iv"],
+        ["i", "v", "VI", "VII"],
+        ["i7", "v", "VI", "VII"],
     ]
 
     mixolydian_progression_array = [
@@ -129,6 +139,11 @@ def get_random_chord_progression(mode: str, args: AtomArguments):
         ["I", "v", "VII"],
         ["I", "v", "v", "I"],
         ["I", "v7", "VII"],
+
+        ["I", "VII", "IV", "I"],
+        ["I", "VII", "IV", "I7"],
+        ["I", "VII", "ii", "I"],
+        ["I7", "VII", "ii", "I"],
     ]
 
     dorian_progression_array = [
@@ -138,7 +153,14 @@ def get_random_chord_progression(mode: str, args: AtomArguments):
         ["i", "VII", "ii"],
         ["i7", "VII", "ii"],
         ["i", "VII", "ii7"],
-        ["i7", "VII", "ii7"]
+        ["i7", "VII", "ii7"],
+
+        ["i", "VII", "III", "IV"],
+        ["i", "III", "IV", "IV7"],
+        ["i", "ii", "III", "ii"],
+        ["i7", "ii", "III", "ii"],
+        ["i", "v", "iv", "i"],
+        ["i", "v", "iv", "i7"],
     ]
 
     lydian_progression_array = [
@@ -151,6 +173,11 @@ def get_random_chord_progression(mode: str, args: AtomArguments):
 
         ["I", "II", "vii", "I"],
         ["I7", "II", "vii", "I"],
+
+        ["I", "I", "II", "V"],
+        ["I7", "I", "II", "V"],
+        ["I", "ii", "vii", "iii"],
+        ["I", "V", "iii", "II"],
     ]
 
     phrygian_progression_array = [
@@ -165,7 +192,11 @@ def get_random_chord_progression(mode: str, args: AtomArguments):
 
         ["i", "VII", "II", "III"],
         ["i7", "VII", "II", "III"],
-        ["i", "VII", "II", "III7"]
+        ["i", "VII", "II", "III7"],
+
+        ["i", "II", "i", "vii"],
+        ["i7", "II", "i", "vii"],
+        ["i", "III", "vii", "II"],
     ]
 
     map = {
