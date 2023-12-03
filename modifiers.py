@@ -6,18 +6,18 @@ def get_modifier_percussion_element():
     percussion_instrument_array = [
         "clap",
         "shaker",
-        "tambourin",
+        "tambourine",
         "conga",
         "cowbell",
         "side snare",
     ]
 
-    ryhthm_array = [
+    rhythm_array = [
         "the groove",
         "a fill"
     ]
 
-    return "**Rhythm:** Include a " + random.choice(percussion_instrument_array) + " in " + random.choice(ryhthm_array)
+    return "**Rhythm:** Include a " + random.choice(percussion_instrument_array) + " in " + random.choice(rhythm_array)
 
 
 def get_modifier_drum_pattern():
@@ -139,7 +139,7 @@ def get_modifier_support_element():
     return "**Supporting Element:** " + random.choice(support_element_array)
 
 
-def get_start_with_modifier():
+def get_modifier_start_with():
     start_with_array = [
         "bass",
         "drums",
@@ -149,6 +149,10 @@ def get_start_with_modifier():
     ]
 
     return "**Start:** Start by writing the " + random.choice(start_with_array) + " as the first element"
+
+
+def get_modifier_limited_number_of_elements():
+    return "**Number of Elements:** Only use " + random.choice([3, 4]) + " elements."
 
 
 def get_modifiers(mode):
@@ -163,7 +167,8 @@ def get_modifiers(mode):
         (25, get_modifier_bass_pattern()),
         (15, get_modifier_octave_jump_in_bass()),
         (25, get_modifier_support_element()),
-        (20, get_start_with_modifier())
+        (20, get_modifier_start_with()),
+        (25, get_modifier_limited_number_of_elements())
     ]
 
     for kvp in modifier_options:

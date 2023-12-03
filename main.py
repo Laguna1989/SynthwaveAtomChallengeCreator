@@ -2,7 +2,6 @@ import logging
 
 import discord
 import os
-from atom_instructions import get_atom_instruction_string
 from arguments_from_string import get_arguments_from_string, create_parser, get_parser_help_string, handle_atom_call
 
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -17,17 +16,17 @@ logger = logging.getLogger("my_logger")
 logger.setLevel(logging.DEBUG)
 
 # create console handler and set level to debug
-ch = logging.StreamHandler()
-ch.setLevel(logging.DEBUG)
+console_hander = logging.StreamHandler()
+console_hander.setLevel(logging.DEBUG)
 
 # create formatter
 formatter = logging.Formatter("[%(asctime)s] [%(levelname)s] %(message)s",
                               "%Y-%m-%d %H:%M:%S")
 # add formatter to ch
-ch.setFormatter(formatter)
+console_hander.setFormatter(formatter)
 
 # add ch to logger
-logger.addHandler(ch)
+logger.addHandler(console_hander)
 
 
 @client.event
