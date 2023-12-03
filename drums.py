@@ -9,7 +9,7 @@ def get_random_drums():
 
         "Linn 9000",
         "Linn LinnDrum",
-        "Linn LM-1"
+        "Linn LM-1",
 
         "Oberheim DMX",
 
