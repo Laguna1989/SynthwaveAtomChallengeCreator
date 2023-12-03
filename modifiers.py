@@ -152,7 +152,7 @@ def get_modifier_start_with():
 
 
 def get_modifier_limited_number_of_elements():
-    return "**Number of Elements:** Only use " + random.choice([3, 4]) + " elements."
+    return "**Number of Elements:** Only use 3 elements."
 
 
 def get_modifiers(mode):
@@ -168,7 +168,7 @@ def get_modifiers(mode):
         (15, get_modifier_octave_jump_in_bass()),
         (25, get_modifier_support_element()),
         (20, get_modifier_start_with()),
-        (25, get_modifier_limited_number_of_elements())
+        (20, get_modifier_limited_number_of_elements())
     ]
 
     for kvp in modifier_options:
