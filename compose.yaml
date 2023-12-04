@@ -13,8 +13,8 @@ services:
       - DISCORD_TOKEN=${DISCORD_TOKEN}
     build:
       context: .
-    ports:
-      - 54022:54022
+#    ports:
+#      - 54022:54022
 
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
