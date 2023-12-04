@@ -2,9 +2,13 @@ import logging
 
 import discord
 import os
+import sys
 from arguments_from_string import get_arguments_from_string, create_parser, get_parser_help_string, handle_atom_call
 
 TOKEN = os.getenv('DISCORD_TOKEN')
+
+if not TOKEN:
+    sys.exit('DISCORD_TOKEN not set')
 
 intents = discord.Intents.default()
 intents.message_content = True
