@@ -5,7 +5,7 @@ from atom_arguments import AtomArguments, get_mode_from_string, get_chords_from_
 from atom_instructions import get_atom_instruction_string
 
 
-@pytest.mark.parametrize("content", ["", "atom", "!atöm", "!blatom", "!ato"])
+@pytest.mark.parametrize("content", ["", "atom", "!atöm", "!blatom", "!ato", "!atomhlep"])
 def test_handle_atom_call_with_invalid_input(content):
     result = handle_atom_call(content, None)
     assert result == ""
@@ -15,7 +15,10 @@ def test_handle_atom_call_with_invalid_input(content):
     "!atom",
     "!atom --mode aeolian",
     "!atom -k C",
-    "!ATOM -k Bb"
+    "!ATOM -k Bb",
+    "!Atom --tempo 90 --drums 'Roland R8'",
+    "!Atom --k C -m dorian",
+    "!Atom --chords 'I, vi7, IV, V7'"
 ])
 def test_handle_atom_call_with_valid_atom_input(content):
     result = handle_atom_call(content, None)
