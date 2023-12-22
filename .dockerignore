@@ -11,10 +11,14 @@
 **/.dockerignore
 **/.env
 **/.git
+**/.github
 **/.gitignore
+**/.idea
 **/.project
+**/.pytest_cache
 **/.settings
 **/.toolstarget
+**/venv
 **/.vs
 **/.vscode
 **/*.*proj.user
@@ -32,3 +36,8 @@
 **/values.dev.yaml
 LICENSE
 README.md
+## do not copy test code to deployment
+arguments_from_string_test.py
+atom_instruction_test.py
+chord_test.py
+sanitize_test.py
