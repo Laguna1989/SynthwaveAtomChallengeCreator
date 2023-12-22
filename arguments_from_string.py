@@ -5,6 +5,7 @@ import sys
 from io import StringIO
 
 from atom_instructions import get_atom_instruction_string
+from sanitize import is_sane_input
 
 
 def create_parser():
@@ -63,20 +64,35 @@ def get_parser_help_string():
 
 
 def handle_atom_call(content, logger):
-    response = ""
-    if content.startswith('!atomhelp') or content.startswith('!atom help'):
+    error_message = ":exclamation: AtomInstructor collapses"
+
+    if not is_sane_input(content):
+        return error_message
+
+    if content.startswith((
+            '!atomhelp',
+            '!atom help',
+            '!Atomhelp',
+            '!Atom help'
+    )):
         if logger:
             logger.info("!atomhelp called")
-        response = get_parser_help_string()
+        return get_parser_help_string()
 
-    elif content.startswith('!atom') or content.startswith('!Atom') or content.startswith('!ATOM'):
+    if content.startswith(('!atom', '!Atom', '!ATOM')):
+        content_is_long_enough_for_parameters = (len(content) > 5)
+        if content_is_long_enough_for_parameters:
+            if content[5] != ' ':
+                # for any invalid !atom call, do not print an error message
+                return ""
+
         if logger:
             logger.info("!atom called")
         try:
             args = get_arguments_from_string(content)
-            response = "Here are your instructions:\n\n" + get_atom_instruction_string(args)
+            return "Here are your instructions:\n\n" + get_atom_instruction_string(args)
         except:
             if logger:
                 logger.error("!atom failed: '" + content + "'")
-            response = ":exclamation: AtomInstructor collapses"
-    return response
+            return error_message
+    return ""

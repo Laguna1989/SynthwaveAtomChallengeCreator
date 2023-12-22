@@ -1,7 +1,7 @@
 # SynthwaveAtomChallengeCreator
 
 An atom is a very rough musical sketch of a track that is normally created within one hour. To get starting point for
-creating atoms as a regularly practice, this small python script will create random instructions. The drums and chords
+creating atoms as a regular practice, this small python script will create random instructions. The drums and chords
 are tailored towards synthwave.
 
 ## Example Output
@@ -27,14 +27,10 @@ Modifiers:
  Melody Pattern: Write a melody with the pattern A | A | A | B
 ```
 
-There are parameters available to avoid randomizing specific parts, namely:
+There are parameters available to avoid randomizing specific parts, ask for them with any of the following command:
 
 ```
-    "--tempo", should be in format 123
-    "--drums", should be in format 'Linn 9000'
-    "--mode", should be in format 'aeolian'
-    "--key", should be in format 'C'
-    "--chords", should be in format 'I III I V7' or 'I, III, I, V7'
+!atomhelp
 ```
 
 E.g. full calls can look like this

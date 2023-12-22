@@ -1,9 +1,8 @@
 import logging
-
 import discord
 import os
 import sys
-from arguments_from_string import get_arguments_from_string, create_parser, get_parser_help_string, handle_atom_call
+from arguments_from_string import handle_atom_call
 
 TOKEN = os.getenv('DISCORD_TOKEN')
 
@@ -47,6 +46,7 @@ async def on_message(message):
         return
 
     response = handle_atom_call(message.content, logger)
+
     if response:
         await message.channel.send(response)
 
