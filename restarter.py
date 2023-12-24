@@ -45,4 +45,5 @@ while True:
     latest_local_tag = get_latest_local_tag()
 
     if not latest_local_tag == latest_remote_tag:
+        print("restart docker container.\nOld tag: " + latest_local_tag + "\nNew tag: " + latest_remote_tag + "\n")
         restart_docker_with_latest_image()
