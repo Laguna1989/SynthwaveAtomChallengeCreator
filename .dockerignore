@@ -36,8 +36,10 @@
 **/values.dev.yaml
 LICENSE
 README.md
-## do not copy test code to deployment
+## do not deploy test code to docker image
 arguments_from_string_test.py
 atom_instruction_test.py
 chord_test.py
 sanitize_test.py
+## do not copy deployment code to docker image
+restart.py
