@@ -38,6 +38,11 @@ def restart_docker_with_latest_image():
     _restart_docker()
 
 
+def update_local_repository():
+    update_local_repo_command = "git pull"
+    os.system(update_local_repo_command)
+
+
 while True:
     time.sleep(60)
 
@@ -47,3 +52,5 @@ while True:
     if not latest_local_tag == latest_remote_tag:
         print("restart docker container.\nOld tag: " + latest_local_tag + "\nNew tag: " + latest_remote_tag + "\n")
         restart_docker_with_latest_image()
+
+        update_local_repository()

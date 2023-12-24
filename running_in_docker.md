@@ -36,5 +36,5 @@ docker pull ghcr.io/laguna1989/synthwaveatomchallengecreator:latest
 * run the docker container via
 
 ```
-docker run --env-file .env ghcr.io/laguna1989/synthwaveatomchallengecreator:latest
+docker run --restart=always --env-file .env -d ghcr.io/laguna1989/synthwaveatomchallengecreator:latest
 ```
