@@ -44,10 +44,11 @@ def update_local_repository():
 
 
 while True:
-    time.sleep(60)
-
     latest_remote_tag = get_latest_remote_tag()
     latest_local_tag = get_latest_local_tag()
+
+    # docker build takes around 1 minute, so the image should be available after 4 minutes (famous last words)
+    time.sleep(240)
 
     if not latest_local_tag == latest_remote_tag:
         print("restart docker container.\nOld tag: " + latest_local_tag + "\nNew tag: " + latest_remote_tag + "\n")
