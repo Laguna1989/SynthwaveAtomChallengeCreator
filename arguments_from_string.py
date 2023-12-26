@@ -60,7 +60,8 @@ def get_parser_help_string():
     parser.print_help()
     # restore original cout
     sys.stdout = old_stdout
-    return mystdout.getvalue()
+    version_string = "version: `SWACC_VERSION` \n"
+    return version_string + "```\n" + mystdout.getvalue() + "```\n"
 
 
 def handle_atom_call(content, logger):
