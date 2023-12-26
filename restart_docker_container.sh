@@ -1,3 +1,7 @@
+REPOSITORY_DIRECTORY=$1
+
+cd $REPOSITORY_DIRECTORY
+
 echo "pull latest version of the SynthwaveAtomChallengeCreator repository"
 git reset --hard
 git checkout master
