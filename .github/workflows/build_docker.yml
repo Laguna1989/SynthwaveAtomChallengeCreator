@@ -23,7 +23,7 @@ jobs:
 
       # write version string into python script
       - name: Write version string to python script
-        run: set sed -i "s|SWACC_VERSION|${{ github.ref_name }}|g" arguments_from_string.py && cat arguments_from_string.py
+        run: sed -i "s|SWACC_VERSION|${{ github.ref_name }}|g" arguments_from_string.py
 
       - name: Log in to the Container registry
         uses: docker/login-action@v3.0.0
