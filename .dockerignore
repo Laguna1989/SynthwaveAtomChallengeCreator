@@ -42,4 +42,4 @@ atom_instruction_test.py
 chord_test.py
 sanitize_test.py
 ## do not copy deployment code to docker image
-restart.py
+restart_docker_container.sh
