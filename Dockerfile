@@ -39,6 +39,9 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 # Switch to the non-privileged user to run the application.
 USER appuser
 
+# write version string into python script
+RUN sed -i "s|SWACC_VERSION|`git describe --tags --abbrev=0` |g" arguments_from_string.py
+
 # Copy the source code into the container.
 COPY . .
 
