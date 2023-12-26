@@ -5,6 +5,7 @@
 # https://docs.docker.com/engine/reference/builder/
 
 ARG PYTHON_VERSION=3.11.6
+ARG GIT_TAG="GIT_TAG"
 FROM python:${PYTHON_VERSION}-slim as base
 
 # Prevents Python from writing pyc files.
@@ -40,7 +41,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 USER appuser
 
 # write version string into python script
-RUN sed -i "s|SWACC_VERSION|`git describe --tags --abbrev=0` |g" arguments_from_string.py
+RUN sed -i "s|SWACC_VERSION|${GIT_TAG}|g" arguments_from_string.py
 
 # Copy the source code into the container.
 COPY . .
