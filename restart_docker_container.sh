@@ -1,5 +1,8 @@
 REPOSITORY_DIRECTORY=$1
 
+echo "\n\n-------------------------"
+date
+
 cd $REPOSITORY_DIRECTORY
 
 echo "pull latest version of the SynthwaveAtomChallengeCreator repository"
@@ -12,7 +15,7 @@ echo ""
 echo "pull latest docker image"
 docker pull ghcr.io/laguna1989/synthwaveatomchallengecreator:latest
 
-DOCKER_CONTAINER_ID=`docker ps | grep ghcr.io/laguna1989/synthwaveatomchallengecreator:latest | awk '{print $1}' | tail -1`
+DOCKER_CONTAINER_ID=`docker ps | grep ghcr.io_laguna1989_synthwaveatomchallengecreator_latest | awk '{print $1}' | tail -1`
 echo ""
 echo "attempting to restart container with id $DOCKER_CONTAINER_ID"
 
