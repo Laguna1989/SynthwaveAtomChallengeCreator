@@ -12,14 +12,14 @@ git pull
 
 echo ""
 
-OLD_IMAGE_ID =`docker image list | grep ghcr.io/laguna1989/synthwaveatomchallengecreator:latest | grep latest | awk '{print $3}'`
+OLD_IMAGE_ID =`docker image list | grep ghcr.io/laguna1989/synthwaveatomchallengecreator | grep latest | awk '{print $3}'`
 
 echo "pull latest docker image"
 docker pull ghcr.io/laguna1989/synthwaveatomchallengecreator:latest
 
 echo ""
 
-UPDATED_IMAGE_ID =`docker image list | grep ghcr.io/laguna1989/synthwaveatomchallengecreator:latest | grep latest | awk '{print $3}'`
+UPDATED_IMAGE_ID =`docker image list | grep ghcr.io/laguna1989/synthwaveatomchallengecreator | grep latest | awk '{print $3}'`
 
 
 echo "old container image id: $OLD_IMAGE_ID"
