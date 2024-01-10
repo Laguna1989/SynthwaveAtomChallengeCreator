@@ -101,6 +101,10 @@ def get_random_chord_progression(mode: str, args: AtomArguments):
         ["I", "IV", "ii", "V"],
         ["I", "iii", "vi", "V"],
         ["I", "iii", "vi", "V"],
+
+        ["V", "ii", "I7", "I"],
+        ["V", "ii", "I"],
+        ["I", "Isus2", "I", "V"],
     ]
 
     aeolian_progression_array = [
@@ -127,6 +131,10 @@ def get_random_chord_progression(mode: str, args: AtomArguments):
         ["i", "III", "VII", "iv"],
         ["i", "v", "VI", "VII"],
         ["i7", "v", "VI", "VII"],
+
+        ["i", "isus4", "i", "i7"],
+        ["i", "isus4", "i7"],
+        ["i", "isus4", "i"],
     ]
 
     mixolydian_progression_array = [
@@ -165,8 +173,15 @@ def get_random_chord_progression(mode: str, args: AtomArguments):
         ["i", "III", "IV", "IV7"],
         ["i", "ii", "III", "ii"],
         ["i7", "ii", "III", "ii"],
+        ["i7", "VII", "III", "II"],
+        ["i7", "VII", "III", "IIsus2"],
         ["i", "v", "iv", "i"],
         ["i", "v", "iv", "i7"],
+
+        ["ii7", "IV", "V7sus4"],
+        ["ii7", "i", "IVsus4", "v7"],
+        ["ii7", "IV", "vi7sus4", "I"],
+        ["ii7", "IVsus4", "I", "V7"]
     ]
 
     lydian_progression_array = [
