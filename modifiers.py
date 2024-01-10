@@ -163,11 +163,11 @@ def get_modifiers(mode):
         (33, get_modifier_drum_pattern()),
         (40, get_modifier_melody_scale(mode)),
         (40, get_modifier_melody_range(mode)),
-        (66, get_modifier_melody_pattern()),
+        (33, get_modifier_melody_pattern()),
         (25, get_modifier_bass_pattern()),
         (15, get_modifier_octave_jump_in_bass()),
         (25, get_modifier_support_element()),
-        (20, get_modifier_start_with()),
+        (15, get_modifier_start_with()),
         (20, get_modifier_limited_number_of_elements())
     ]
 
