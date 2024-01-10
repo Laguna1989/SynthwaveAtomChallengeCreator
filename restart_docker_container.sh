@@ -25,7 +25,7 @@ UPDATED_IMAGE_ID=`docker image list | grep ghcr.io/laguna1989/synthwaveatomchall
 echo "old container image id: $OLD_IMAGE_ID"
 echo "new container image id: $UPDATED_IMAGE_ID"
 
-if [[ "$OLD_IMAGE_ID" == "UPDATED_IMAGE_ID" ]]; then
+if [[ "$OLD_IMAGE_ID" == "$UPDATED_IMAGE_ID" ]]; then
   echo "image ids differ, restart docker"
 
   DOCKER_CONTAINER_ID=`docker ps | grep ghcr.io_laguna1989_synthwaveatomchallengecreator_latest | awk '{print $1}' | tail -1`
