@@ -61,7 +61,8 @@ def get_parser_help_string():
     # restore original cout
     sys.stdout = old_stdout
     version_string = "version: `SWACC_VERSION` \n"
-    return version_string + "```\n" + mystdout.getvalue() + "```\n"
+    explanation_page_string = "Find explanations on [this page](<https://github.com/Laguna1989/SynthwaveAtomChallengeCreator/blob/master/explanation.md>) \n"
+    return version_string + "```\n" + mystdout.getvalue() + "```\n" + explanation_page_string
 
 
 def handle_atom_call(content, logger):
