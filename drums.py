@@ -13,7 +13,7 @@ def get_random_drums():
 
         "Oberheim DMX",
 
-        "Roland CR76",
+        "Roland CR78",
         "Roland R8",
         "Roland TR-626",
         "Roland TR-707",
