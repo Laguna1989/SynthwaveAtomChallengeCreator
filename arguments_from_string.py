@@ -29,7 +29,7 @@ def create_parser():
     return parser
 
 
-def get_arguments_from_string(message_content: str):
+def get_arguments_from_string(message_content: str) -> AtomArguments:
     split_content = message_content.split()
     args_string = ""
     if len(split_content) > 1:
