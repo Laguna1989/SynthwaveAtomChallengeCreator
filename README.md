@@ -1,6 +1,6 @@
 # SynthwaveAtomChallengeCreator
 
-An atom is a very rough musical sketch of a track that is normally created within one hour. To get starting point for
+An atom is a very rough musical sketch of a track that is normally created within one hour. To get a starting point for
 creating atoms as a regular practice, this small python script will create random instructions. The drums and chords
 are tailored towards synthwave.
 
@@ -37,6 +37,6 @@ E.g. full calls can look like this
 
 ```
 !Atom --tempo 90 --drums 'Roland R8'
-!Atom --k C -m dorian
+!atom --k C -m dorian
 !Atom --chords 'I, vi7, IV, V7'
 ```
