@@ -44,7 +44,7 @@ def get_modifier_drum_pattern():
     ]
 
     return "**Rhythm:** Include a " + random.choice(beat_array) + " " + random.choice(
-        type_array) + " " + random.choice(instrument_array) + "  in your groove"
+        type_array) + " " + random.choice(instrument_array) + " in your groove"
 
 
 def get_modifier_melody_pentatonic(mode):
