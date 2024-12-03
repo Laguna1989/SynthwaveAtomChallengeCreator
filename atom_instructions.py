@@ -28,7 +28,7 @@ def get_atom_instruction_string(args: AtomArguments) -> str:
     mode_name = mode.name.split(" ")[1]
     output_string += print_to_string("* **Key:**", key) + "\n"
     output_string += print_to_string("* **Mode:**", mode_name) + "\n"
-    output_string += print_to_string("\t* **Notes in scale:**", mode.ascending()) + "\n"
+    output_string += print_to_string("  * **Notes in scale:**", mode.ascending()) + "\n"
 
     chord_progression = get_random_chord_progression(mode.name, args)
     output_string += print_to_string("* **chord progression:**", chord_progression) + "\n"
@@ -38,16 +38,16 @@ def get_atom_instruction_string(args: AtomArguments) -> str:
         determined_chord_name = "[...]"
         if determined_chords:
             determined_chord_name = determined_chords[0]
-        output_string += print_to_string(" * **", chord, "**,",
+        output_string += print_to_string(f"  * **{chord}** -",
                                          determined_chord_name,
-                                         ", notes: ",
+                                         "- notes: ",
                                          chord_notes_array) + "\n"
-    output_string += print_to_string("* **Modifiers:** \n")
+    output_string += print_to_string("* **Modifiers:**") + "\n"
     mods = get_modifiers(mode)
     if not mods:
         output_string += " * None\n"
     else:
         for mod in mods:
-            output_string += print_to_string(" * ", mod) + "\n"
+            output_string += print_to_string("  * ", mod) + "\n"
 
     return output_string.replace("'", "")
